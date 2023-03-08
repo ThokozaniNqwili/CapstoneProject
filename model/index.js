@@ -127,7 +127,7 @@ class Product{
         const productsQry = 
         `
         SELECT
-        productId, productName, prodNutrition, category, price, prodQuantity, imgUrl
+        productId, productName, prodNutrition, category, price, prodQuantity, imgURL
         From products;
         `;
 
@@ -141,7 +141,7 @@ class Product{
     const productQry = 
     `
     SELECT
-    productId, productName, prodNutrition, category, price, prodQuantity, imgUrl
+    productId, productName, prodNutrition, category, price, prodQuantity, imgURL
     From products;
     where id = ?;
     `

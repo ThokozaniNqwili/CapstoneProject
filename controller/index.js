@@ -55,4 +55,21 @@ route.delete("/product/:id", (req, res) => {
   product.deleteProduct(req, res);
 });
 
+//-----------------Cart--------------------------
+route.get("/user/:id/carts",bodyParser.json,(req, res) => {
+    product.fetchProduct(req,res);
+});
+route.post("/user/:id/cart",bodyParser.json, (req, res) => {
+    product.addProduct(req,res);
+})
+route.put("/user/:id/cart", bodyParser.json, (req, res) => {
+    product.updateProduct(req,res);
+})
+route.delete("/user/:id/cart",bodyParser.json, (req, res) => {
+    product.deleteProduct(req,res);
+})
+
+
+
+
 module.exports = route;

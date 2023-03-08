@@ -5,7 +5,7 @@ let {createToken} = require ('../middleware/AuthenticatedUser');
 class User{
     login(req,res){
         const {emailAdd,userPass} = req.body;
-        const strQry =
+        const loginQry =
         `SELECT
         userId ,firstName, lastName,phoneNumber, emailAdd, userPass, 
         userRole
@@ -13,7 +13,7 @@ class User{
         Where emailAdd = ?;
 
         `
-        db.query(strQry, [emailAdd], async(err,data)=>{
+        db.query(loginQry, [emailAdd], async(err,data)=>{
             console.log(err,data)
             if(err) throw err;
             if((!data)||(data == null)){
@@ -40,26 +40,26 @@ class User{
         });
     }
     fetchUsers(req,res){
-        const strQry = 
+        const usersQry = 
         ` SELECT 
         userId ,firstName, lastName,phoneNumber, emailAdd, 
         userRole
         FROM Users;
         `;
-        db.query(strQry,(err,data)=>{
+        db.query(usersQry,(err,data)=>{
             if(err) throw err;
             else res.status(200).json({results:data});
         })
     }
     fetchUser(req,res){
-        const strQry = 
+        const userQry = 
         `
-        userID ,firstName, lastName,phoneNumber, emailAdd, 
+        userId ,firstName, lastName,phoneNumber, emailAdd, 
         userRole
-        where userID = ?
+        where userId = ?
         FROM Users;
         `;
-        db.query(strQry,[req.params.id],(err,data)=>{
+        db.query(userQry,[req.params.id],(err,data)=>{
             if(err) throw err;
             else res.status(200).json({result:data});
         })
@@ -74,12 +74,12 @@ class User{
             userPass: detail.userPass
         }
 
-        const strQry =
+        const addUserQry =
         `
         insert into Users
         SET ?;
         `;
-        db.query(strQry,[detail], (err)=>{
+        db.query(addUserQry,[detail], (err)=>{
             if(err) {
                 res.status(401).json({err});
             }else{
@@ -96,14 +96,14 @@ class User{
         let data = req.body;
         if(data.userPass !== null || data.userPass !== undefined) 
         data.userPass = hashSync(data.userPass,20);
-        const strQry =
+        const updateUserQry =
         `
         Update Users
         SET ?
-        WHERE userID = ?;
+        WHERE userId = ?;
         `;
 
-        db.query(strQry,[data, req.params.id],
+        db.query(updateUserQry,[data, req.params.id],
             (err) =>{
                 if(err) throw err;
                 request.status(200).json({msg: 'a record was updated successfully'});
@@ -111,12 +111,12 @@ class User{
 
     }
     deleteUser(req,res){
-        const strQry =
+        const deleteUserQry =
         `
         Delete from Users
-        Where userID = ?;
+        Where userId = ?;
         `;
-        db.query(strQry,[req.params.id],(err) =>{
+        db.query(deleteUserQry,[req.params.id],(err) =>{
             if(err) throw err;
             request.status(200).json({msg: 'a record was deleted successfully'});
     })
@@ -124,40 +124,40 @@ class User{
 }
 class Product{
     fetchProducts(req,res){
-        const strQry = 
+        const productsQry = 
         `
         SELECT
-        productId, prodName, prodNutrition, category, price, prodQuantity, imgUrl
+        productId, productName, prodNutrition, category, price, prodQuantity, imgUrl
         From products;
         `;
 
-        db.query(strQry, (err,results) =>{
+        db.query(productsQry, (err,results) =>{
             if(err) throw err;
             res.status(200).json({results: results});
 
     });
     }
     fetchProduct(req, res){
-    const strQry = 
+    const productQry = 
     `
     SELECT
-    productId, prodName, prodNutrition, category, price, prodQuantity, imgUrl
+    productId, productName, prodNutrition, category, price, prodQuantity, imgUrl
     From products;
     where id = ?;
     `
-    db.query(strQry,[req.params.id], (err,results) =>{
+    db.query(productQry,[req.params.id], (err,results) =>{
         if(err) throw err;
         res.status(200).json({results: results});
     });
     }
     addProduct(req, res){
     
-        const strQry = 
+        const addProductQry = 
         `
         INSERT INTO products
         SET ?;
         `;
-        db.query(strQry,[req.body],(err) =>{
+        db.query(addProductQry,[req.body],(err) =>{
             if(err){
                 res.status(400).json({err:'Unable to insert a new product'});
 
@@ -167,13 +167,13 @@ class Product{
         });
     }
     updateProduct(req,res){
-        const strQry =
+        const updateProductQry =
         `
         Update products
         SET ?
         Where productId = ?
         `;
-        db.query(strQry,[req.body, req.params.id], (err) =>{
+        db.query(updateProductQry,[req.body, req.params.id], (err) =>{
         if(err){
             res.status(400).json({err:'Unable to update a product'});
         }else{
@@ -184,15 +184,16 @@ class Product{
     });
     }
     deleteProduct(req,res){
-        const strQry = 
+        const deleteProductQry = 
         `
         Delete from products
         Where productId = ?
         `;
-        db.query(strQry,[req.body, req.params.id], (err) =>{
+        db.query(deleteProductQry,[req.body, req.params.id], (err) =>{
             if(err) res.status(400).json({err:'The product was not found.'});
             res.status(200).json({msg: 'Product deleted successfully'});
     })
     }
 }
+
 module.exports = {User,Product}

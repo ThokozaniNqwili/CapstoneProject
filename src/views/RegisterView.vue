@@ -5,7 +5,7 @@
           <div class="container">
             <div class="row">
               <div class="col-sm-8">
-                <form>
+                <form @submit.prevent="signup">
                   <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label"
                       >FirstName</label
@@ -16,6 +16,7 @@
                       id="exampleFormControlInput1"
                       placeholder="FirstName"
                       name="FirstName"
+                      v-model="firstName"
                       required
                     />
                   </div>
@@ -24,12 +25,13 @@
                       >LastName</label
                     >
                     <input
-                      type="email"
+                      type="text"
                       class="form-control"
                       id="exampleFormControlInput1"
                       placeholder="LastName"
                       name="LastName"
                       required
+                      v-model="lastName"
                     />
                   </div>
                   <div class="mb-3">
@@ -37,11 +39,13 @@
                       >Email Address</label
                     >
                     <input
-                      type="number"
+                      type="text"
                       class="form-control"
                       id="exampleFormControlInput1"
                       placeholder="Email Address"
                       name="Email"
+                      required
+                      v-model="emailAdd"
                     />
                   </div>
                   <div class="mb-3">
@@ -54,6 +58,9 @@
                         id="exampleFormControlInput1"
                         placeholder="+27 833 449 1237"
                         name="number"
+                        maxlength="12"
+                        required
+                        v-model="phoneNumber"
                       />
                     </div>
                     <div class="mb-3">
@@ -61,11 +68,13 @@
                         >Password</label
                       >
                       <input
-                        type="number"
+                        type="password"
                         class="form-control"
                         id="exampleFormControlInput1"
                         placeholder=""
                         name="password"
+                        required
+                        v-model="userPass"
                       />
                     </div>
                     <div class="mb-3">
@@ -73,24 +82,24 @@
                         >Confirm Password</label
                       >
                       <input
-                        type="number"
+                        type="password"
                         class="form-control"
                         id="exampleFormControlInput1"
                         placeholder=""
                         name="password1"
+                        v-model="confirmPass"
                       />
                     </div>
                   
       
                   <div class="col-auto">
-                    <button
+                    <router-link to="/login"><button
                       type="submit"
                       class="btnSignUp"
-                      data-bs-toggle="modal"
-                      data-bs-target="#messageModal"
+        
                     >
                       Sign Up
-                    </button>
+                    </button></router-link>>
                   </div>
                 </form>
               </div>
@@ -121,3 +130,37 @@
 }
 
 </style>
+<script>
+export default{
+  data(){
+    return {
+      firstName: '',
+      lastName: '',
+      emailAdd:'',
+      phoneNumber:'',
+      userPass:'',
+      confirmPass:''
+    }
+    },
+    computed:{
+      message(){
+        return this.$store.state.message
+
+      }
+    },
+  methods:{
+    signup(){
+      this.$store.dispatch('createUser',{
+        firstName: this.firstName,
+        lastName: this.lastName,
+        emailAdd: this.emailAdd,
+        userPass: this.userPass,
+        phoneNumber: this.phoneNumber
+      })
+    }
+  }
+
+  }
+
+
+</script>

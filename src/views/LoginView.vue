@@ -36,8 +36,7 @@
                         <button
                           type="submit"
                           class="btnLogin"
-                          data-bs-toggle="modal"
-                          data-bs-target="#messageModal"
+
                         >
                           Login
                         </button>
@@ -47,8 +46,6 @@
                         <button
                           type="submit"
                           class="btnPassword"
-                          data-bs-toggle="modal"
-                          data-bs-target="#messageModal"
                         >
                           Forgot Password?
                         </button>
@@ -67,5 +64,12 @@
     height: 100%;
     width: 100%;
     background: linear-gradient(to right,#f1f864 , white);
+}
+.btnLogin, .btnPassword{
+    width: 100%;
+    background-color: #bceb3c;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+
 }
 </style>

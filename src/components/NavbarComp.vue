@@ -31,7 +31,7 @@
                   <a class="nav-link active" aria-current="page" href="/login">Sign In</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">Manage</a>
+                    <a class="nav-link " aria-current="page" href="/admin">Manage</a>
                   </li>
                 <li class="nav-item">
                   <a class="nav-link " href="#">Profile</a>

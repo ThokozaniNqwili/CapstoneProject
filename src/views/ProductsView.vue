@@ -14,7 +14,7 @@
                   <div class="card-body text-center">
                     <h5 class="card-title "> {{product.productName}}</h5>
                     <p class="card-text">R {{product.price}}</p>
-                    <a href="/product" class="btnView" >View Me</a>
+                    <RouterLink :to="{name: 'product', params: {id: product.productId}}" class="btnView">View Me</RouterLink>
                   </div> 
                 </div>
                 </div>

@@ -18,6 +18,10 @@ route.post("/login", bodyParser.json(), (req, res) => {
 route.get("/users", (req, res) => {
   user.fetchUsers(req, res);
 });
+//Retrieve user
+route.get("/user/:id", (req, res) => {
+  user.fetchUser(req, res);
+});
 //Update
 route.put("/user/:id", bodyParser.json(), (req, res) => {
   user.updateUser(req, res);
@@ -56,18 +60,18 @@ route.delete("/product/:id", (req, res) => {
 });
 
 //-----------------Cart--------------------------
-route.get("/user/:id/carts",bodyParser.json,(req, res) => {
-    product.fetchProduct(req,res);
-});
-route.post("/user/:id/cart",bodyParser.json, (req, res) => {
-    product.addProduct(req,res);
-})
-route.put("/user/:id/cart", bodyParser.json, (req, res) => {
-    product.updateProduct(req,res);
-})
-route.delete("/user/:id/cart",bodyParser.json, (req, res) => {
-    product.deleteProduct(req,res);
-})
+// route.get("/user/:id/carts",bodyParser.json,(req, res) => {
+//     product.fetchProduct(req,res);
+// });
+// route.post("/user/:id/cart",bodyParser.json, (req, res) => {
+//     product.addProduct(req,res);
+// })
+// route.put("/user/:id/cart", bodyParser.json, (req, res) => {
+//     product.updateProduct(req,res);
+// })
+// route.delete("/user/:id/cart",bodyParser.json, (req, res) => {
+//     product.deleteProduct(req,res);
+// })
 
 
 

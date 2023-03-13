@@ -8,7 +8,6 @@ const cookieParser = require("cookie-parser");
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Origin", "https://hairaffairseomp.web.app/");
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("Access-Control-Allow-Methods", "*");
   res.header("Access-Control-Allow-Headers", "*");
@@ -27,4 +26,4 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
-app.use(errorHandling);
+// app.use(errorHandling);

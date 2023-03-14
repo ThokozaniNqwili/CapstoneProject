@@ -5,7 +5,7 @@
             <div class="row justify-content-md-center">
              
               <div class="col-md-auto">
-                <form>
+                <form @submit.prevent="login" >
                     <div class="mb-3">
                       <label for="exampleFormControlInput1" class="form-label"
                         >Email Address</label
@@ -16,6 +16,7 @@
                         id="exampleFormControlInput1"
                         placeholder="Email Address"
                         name="email"
+                        v-model="emailAdd"
                         required
                       />
                     </div>
@@ -29,6 +30,7 @@
                         id="exampleFormControlInput1"
                         placeholder=""
                         name="password"
+                        v-model="userPass"
                         required
                       />
                     </div>
@@ -73,3 +75,32 @@
 
 }
 </style>
+<script>
+export default{
+  data(){
+    return {
+     
+      emailAdd:'',
+      userPass:'',
+  
+    }
+    },
+    computed:{
+      correctUser(){
+        return this.$store.state.correctUser
+
+      }
+    },
+  methods:{
+    login(){
+      this.$store.dispatch('login',{
+       
+        emailAdd: this.emailAdd,
+        userPass: this.userPass,
+        
+      })
+    }
+  }
+
+  }
+</script>

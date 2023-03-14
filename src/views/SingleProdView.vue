@@ -39,26 +39,6 @@
 
 
 
-
-
-
-  <!-- <div class="container">
-    <div class="col-sm-5">
-    
-      <div class="card">
-        <img :src="product.imgURL" class="card-img-top" alt="product" />
-      </div>
- 
-    </div>
-    <div class="col-sm-7">
-        
-            <h5 class="card-title "> {{product.productName}}</h5>
-            <p class="card-text">R {{product.price}}</p>
-            </div>
-
-    </div> -->
-
-
 </template>
 <script>
 export default {

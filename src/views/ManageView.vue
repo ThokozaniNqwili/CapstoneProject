@@ -27,9 +27,8 @@
       <td> {{ user.emailAdd }}</td>
       <td> {{ user.phoneNumber }}</td>
       <td> {{ user.userRole }}</td>
-      <td><UpdateUserComp/></td>
+      <td><UpdateUserComp :userData="user" /></td>
       <td><button type="button" ><i class="fa-solid fa-trash"></i></button></td>
-     
     </tr>
   </tbody>
 </table>
@@ -43,7 +42,7 @@
           <button
         class="btnAddProduct"
         data-bs-toggle="modal"
-        data-bs-target="#addAccomodation"
+        data-bs-target="#addProduct"
       >
         <i class="fa-solid fa-plus"></i> Add Product
       </button>
@@ -86,6 +85,8 @@ export default{
     components: {
     AddUserComp, UpdateUserComp
     },
+
+    
     
     computed:{
         products(){

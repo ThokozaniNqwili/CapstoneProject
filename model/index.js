@@ -15,7 +15,7 @@ class User {
     db.query(loginQry, [emailAdd], async (err, data) => {
       console.log(err, data);
       if (err) throw err;
-      if (!data || data == null) {
+      if (!data.length || data == null) {
         res.status(401).json({ err: `You've entered a wrong email address` });
       } else {
         await compare(userPass, data[0].userPass, (cErr, cResult) => {

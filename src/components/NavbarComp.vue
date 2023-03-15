@@ -15,11 +15,11 @@
                 <a class="nav-link" aria-current="page" href="/products">Shop</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/about">About Us</a>
+                <a class="nav-link" href="/about">About</a>
               </li>
               
               <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact Us</a>
+                <a class="nav-link" href="/contact">Contact</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/register">Sign Up</a>
@@ -34,7 +34,7 @@
                     <a class="nav-link " aria-current="page" href="/admin">Manage</a>
                   </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="#">Profile</a>
+                  <a class="nav-link " href="/profile" >Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="#">Cart</a>
@@ -55,3 +55,16 @@ nav{
 }
 
 </style>
+<script>
+export default {
+   
+   computed: {
+     correctUser(){
+         return this.$store.state.correctUser
+ 
+       }
+   }
+   
+ };
+ 
+</script>

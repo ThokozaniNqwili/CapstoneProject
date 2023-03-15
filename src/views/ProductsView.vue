@@ -1,5 +1,6 @@
 <template>
     <div class="products">
+        <SpinnerComp/>
          <div class="filterbox">  
             <input class="form-control me-2" type="search" placeholder="Search by Category" aria-label="Search">
             <button type="button" class="btnPrice">
@@ -23,7 +24,12 @@
     </div>
 </template>
 <script>
+import SpinnerComp from '@/components/SpinnerComp.vue'
 export default{
+    components: {
+    SpinnerComp
+    },
+
     computed:{
         products(){
             return this.$store.state.products

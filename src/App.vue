@@ -24,6 +24,7 @@ export default {
   font-family: 'Courier New', Courier, monospace;
   
 }
+
 h1{
   text-align: center;
   font-weight: bolder;

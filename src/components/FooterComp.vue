@@ -14,7 +14,7 @@
             <li><a href="/contact">Contact us</a></li>
             <li><a href="/admin">Manage</a></li>
           </ul>
-          <p>&copy;2023 Thokozani Nqwili | All Rights Reserved</p>
+          <p>&copy;2023 Foodies Market | All Rights Reserved</p>
     </footer>
     
      

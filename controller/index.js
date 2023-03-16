@@ -2,9 +2,10 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const route = express.Router();
-const { User, Product } = require("../model");
+const { User, Product, Cart } = require("../model");
 const user = new User();
 const product = new Product();
+const cart = new Cart();
 route.get("^/$|/FoodiesMarket", (req, res) => {
   res.status(200).sendFile(path.join(__dirname, "../view/index.html"));
 });
@@ -60,18 +61,21 @@ route.delete("/product/:id", (req, res) => {
 });
 
 //-----------------Cart--------------------------
-// route.get("/user/:id/carts",bodyParser.json,(req, res) => {
-//     product.fetchProduct(req,res);
-// });
-// route.post("/user/:id/cart",bodyParser.json, (req, res) => {
-//     product.addProduct(req,res);
-// })
-// route.put("/user/:id/cart", bodyParser.json, (req, res) => {
-//     product.updateProduct(req,res);
-// })
-// route.delete("/user/:id/cart",bodyParser.json, (req, res) => {
-//     product.deleteProduct(req,res);
-// })
+route.get("/user/:id/carts",(req, res) => {
+    cart.fetchCart(req,res);
+});
+route.post("/user/:id/cart",bodyParser.json, (req, res) => {
+    cart.addToCart(req,res);
+})
+route.put("/user/:id/cart/:id", bodyParser.json, (req, res) => {
+    cart.updateCartItem(req,res);
+})
+route.delete("/user/:id/cart",(req, res) => {
+    cart.deleteCart(req,res);
+})
+route.delete("/user/:id/cart/:id",(req, res) => {
+  cart.deleteCartItem(req,res);
+})
 
 
 

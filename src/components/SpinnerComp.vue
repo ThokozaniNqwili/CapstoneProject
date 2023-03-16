@@ -3,18 +3,19 @@
     
 </template>
 <script>
-// export default{
-//     mounted(){
-//     window.addEventListener("load",()=>{
-//     const spinner = document.querySelector(".spinner");
+export default{
+    mounted(){
+    window.addEventListener("load",()=>{
+    const spinner = document.querySelector(".spinner");
 
-//     spinner.classList.add("spinner-hidden");
-//     spinner.addEventListener("transitioned",() => {
-//     document.body.removeChild("spinner");
-//     })
-// })
+    spinner.classList.add("spinner-hidden");
+    spinner.addEventListener("transitioned",() => {
+    document.body.removeChild("spinner");
+    })
+})
 
-//     }
+    }
+}
   
 
 </script>

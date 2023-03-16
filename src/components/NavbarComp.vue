@@ -34,10 +34,10 @@
                     <a class="nav-link " aria-current="page" href="/admin">Manage</a>
                   </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="/profile" >Profile</a>
+                  <a class="nav-link " href="/profile" v-if="user" >Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="#">Cart</a>
+                    <a class="nav-link " href="#" v-if="user">Cart</a>
                   </li>
                 
               </ul>

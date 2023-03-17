@@ -82,7 +82,7 @@
   
 <style>
 .contact{
-  background: linear-gradient(to right,#f1f864 , white);
+  background:white;
 }
 
 .container {

@@ -8,7 +8,7 @@
            
 
   <div class="row">
-    <table class="table">
+    <table class="table-responsive">
   <thead>
     <tr>
       <th scope="col">First Name</th>
@@ -16,7 +16,7 @@
       <th scope="col">Email Address</th>
       <th scope="col">Cell Number (+27)</th>
       <th scope="col">User Role</th>
-      <th scope="col">Edit</th>
+     
       <th scope="col">Delete</th>
     </tr>
   </thead>
@@ -27,7 +27,7 @@
       <td> {{ user.emailAdd }}</td>
       <td> {{ user.phoneNumber }}</td>
       <td> {{ user.userRole }}</td>
-      <td><UpdateUserComp :userData="user" /></td>
+ 
       <td><button type="button" ><i class="fa-solid fa-trash"></i></button></td>
     </tr>
   </tbody>
@@ -39,13 +39,7 @@
     <div>
       <div class="container">
         <h2>Products</h2>
-          <button
-        class="btnAddProduct"
-        data-bs-toggle="modal"
-        data-bs-target="#addProduct"
-      >
-        <i class="fa-solid fa-plus"></i> Add Product
-      </button>
+        <AddProdComp/>
       <button  class="btnSort">
         <i class="fas fa-sort"></i> Sort by Price
       </button>
@@ -81,11 +75,16 @@
 
 <script>
 import AddUserComp from '@/components/AddUserComp.vue'
-import UpdateUserComp from '@/components/UpdateUserComp.vue'
+
+import AddProdComp from '@/components/AddProdComp.vue'
+
 export default{
     components: {
-    AddUserComp, UpdateUserComp
-    },
+    AddUserComp,
+    AddProdComp
+  
+
+},
 
     
     

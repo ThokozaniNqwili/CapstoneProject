@@ -6,10 +6,10 @@
             </div>
             <div class="row">
                 <h3>Profile Details</h3>
-                <p class="text-sm-start">First Name : {{user?.firstName}}</p>
-                <p class="text-sm-start">Last Name :{{user?.lastName}}</p>
-                <p class="text-sm-start">Email Address :{{user?.emailAdd}}</p>
-                <p class="text-sm-start">Phone Number :{{user?.phoneNumber}}</p>
+                <p class="text-sm-start">First Name : {{loggedUser?.firstName}}</p>
+                <p class="text-sm-start">Last Name :{{loggedUser?.lastName}}</p>
+                <p class="text-sm-start">Email Address :{{loggedUser?.emailAdd}}</p>
+                <p class="text-sm-start">Phone Number :{{loggedUser?.phoneNumber}}</p>
                 
             </div>
 
@@ -24,9 +24,8 @@
 export default {
    
   computed: {
-    user(){
+    loggedUser(){
         return JSON.parse(localStorage.getItem("loggedUser"));
-
       }
   },
  

@@ -14,15 +14,15 @@
           </div>
           <div class="modal-body" >
             <label>First Name:</label><br>
-            <input type="text" id="firstName" class="update" v-model="firstName" ><br><br>
+            <input type="text" id="firstName" class="update" v-model="payload.firstName" ><br><br>
             <label>Last Name:</label><br>
-            <input type="text" id="lastName" class="update" v-model="lastName" > <br><br>
+            <input type="text" id="lastName" class="update" v-model="payload.lastName" > <br><br>
             <label>Email Address:</label><br>
-            <input type="email" id="emailAdd" class="update" v-model="emailAdd" > <br><br>
+            <input type="email" id="emailAdd" class="update" v-model="payload.emailAdd" > <br><br>
             <label>Phone Number:</label><br>
-            <input type="number" id="phoneNumber" class="update" v-model="phoneNumber" > <br><br>
+            <input type="number" id="phoneNumber" class="update" v-model="payload.phoneNumber" > <br><br>
             <label>User Role</label><br>
-            <input type="text" id="userRole" class="update" v-model="userRole"> <br><br>
+            <input type="text" id="userRole" class="update" v-model="payload.userRole"> <br><br>
            
           </div>
           <div class="modal-footer">
@@ -41,14 +41,14 @@
   </style>
   <script>
   export default {
-    props: ['userData'],
+   
     data(){
       return {
-        firstName: this.userData.firstName,
-        lastName: this.userData.lastName,
-        emailAdd:this.userData.emailAdd,
-        phoneNumber:this.userData.phoneNumber,
-        userRole:this.userData.userRole
+        firstName: '',
+        lastName: '',
+        emailAdd:'',
+        phoneNumber:'',
+        userRole:''
     }
   },
   computed:{

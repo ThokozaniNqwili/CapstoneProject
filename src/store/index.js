@@ -91,9 +91,19 @@ export default createStore({
         console.log(err);
       }
     },
+    addProduct: async (context,payload)=>{
+      const res = await axios.post(`${foodies}product`, payload);
+      const { msg, err } = await res.data;
+      if (msg) {
+        context.commit("setMesage", msg);
+      } else {
+        context.commit("setMesage", err);
+      }
 
-    updateUser: async (context, id) => {
-      const res = await axios.put(`${foodies}user/${id}`);
+    },
+
+    updateUser: async (context,payload) => {
+      const res = await axios.put(`${foodies}user/${payload.id}`, payload);
       const { result, err } = await res.data;
       console.log(result);
       if (result) {

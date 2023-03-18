@@ -8,7 +8,7 @@ export default createStore({
     product: null,
     message: null,
     users: null,
-    user: null
+    user: null,
   },
   getters: {},
   mutations: {
@@ -27,10 +27,6 @@ export default createStore({
     setProduct(state, product) {
       state.product = product;
     },
-    // setCorrectUser(state,correctUser){
-    //   state.correctUser = correctUser;
-    // }
-
   },
   actions: {
     fetchProducts: async (context) => {
@@ -73,9 +69,9 @@ export default createStore({
       const res = await axios.post(`${foodies}signup`, payload);
       const { msg, err } = await res.data;
       if (msg) {
-        context.commit("setMesage", msg);
+        context.commit("setMessage", msg);
       } else {
-        context.commit("setMesage", err);
+        context.commit("setMessage", err);
       }
     },
     async login(context, payload) {
@@ -84,26 +80,30 @@ export default createStore({
       if (result) {
         context.commit("setMessage", msg);
         context.commit("setUser", result);
-        localStorage.setItem("loggedUser", JSON.stringify(result))
+        localStorage.setItem("loggedUser", JSON.stringify(result));
         console.log(result, msg);
       } else {
         context.commit("setMesage", err);
         console.log(err);
       }
     },
-    addProduct: async (context,payload)=>{
+
+    addProduct: async (context, payload) => {
       const res = await axios.post(`${foodies}product`, payload);
       const { msg, err } = await res.data;
-      if (msg) {
-        context.commit("setMesage", msg);
-      } else {
-        context.commit("setMesage", err);
-      }
 
+      if (msg) {
+        console.log(msg);
+        context.commit("setMessage", msg);
+      } else {
+        context.commit("setMessage", err);
+        console.log(err);
+      }
     },
 
-    updateUser: async (context,payload) => {
-      const res = await axios.put(`${foodies}user/${payload.id}`, payload);
+    updateProduct: async (context, id, payload) => {
+      const res = await axios.put(`${foodies}product/${id}`, payload);
+      console.log(payload);
       const { result, err } = await res.data;
       console.log(result);
       if (result) {
@@ -111,6 +111,26 @@ export default createStore({
       } else {
         context.commit("setMessage", err);
       }
+    },
+
+    deleteProduct: async (context, id) => {
+      const { data } = await axios.delete(`${foodies}product/${id}`);
+      if (data) {
+        context.commit("setMessage", data.msg);
+        context.dispatch("fetchProducts");
+      } else {
+        context.commit("setMessage", data.err);
+      }
+      // const res = await axios.delete(`${foodies}product/${id}`);
+      // const { msg, err } = await res.data;
+      // console.log()
+      // if (result) {
+      //   context.commit("setProduct", result);
+      //   console.log(result);
+      // } else {
+      //   context.commit("setProduct", err);
+      //   console.log(err);
+      // }
     },
   },
   modules: {},

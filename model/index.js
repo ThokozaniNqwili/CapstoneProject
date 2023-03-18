@@ -168,8 +168,8 @@ class Product {
         Delete from products
         Where productId = ?
         `;
-    db.query(deleteProductQry, [req.body, req.params.id], (err) => {
-      if (err) res.status(400).json({ err: "The cart was not found." });
+    db.query(deleteProductQry, [req.params.id], (err) => {
+      if (err) res.status(400).json({ err: "The product was not found." });
       res.status(200).json({ msg: "Product deleted successfully" });
     });
   }

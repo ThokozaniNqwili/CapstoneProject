@@ -5,10 +5,10 @@
           
               <div class="row">
                 <div class="col">
-                  <input class="search form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <input class="search form-control me-2" @click.prevent="search" type="search" placeholder="Search" aria-label="Search">
                 </div>
                 <div class="col">
-                  <button type="button" class="btnPrice"><i class="fas fa-sort"></i> Price </button>
+                  <button type="button" @click.prevent="sortPrice" class="btnPrice"><i class="fas fa-sort"></i> Price </button>
                 </div>
                 <div class="col">
                   <div class="dropdown">
@@ -57,11 +57,20 @@ export default{
       products(){
           return this.$store.state.products
       }
+      
+
+
   },
   created(){
       this.$store.dispatch('fetchProducts')
+  },
+  methods:{
+    sortPrice(){
+      this.$store.commit("sortProductPrice")
+    }
+    
+    }
   }
-}
 </script>
 <style>
 .btnPrice{

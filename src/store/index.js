@@ -27,6 +27,19 @@ export default createStore({
     setProduct(state, product) {
       state.product = product;
     },
+    sortProductPrice:(state) =>{
+      state.products.sort((a,b)=>{
+        return a.price - b.price;
+      })
+      if(!state.asc){
+        state.products.reverse()
+      }
+      state.asc =!state.asc
+
+    }
+  
+    
+
   },
   actions: {
     fetchProducts: async (context) => {
@@ -101,8 +114,19 @@ export default createStore({
       }
     },
 
-    updateProduct: async (context, id, payload) => {
-      const res = await axios.put(`${foodies}product/${id}`, payload);
+    updateProduct: async (context, payload) => {
+      const res = await axios.put(`${foodies}product/${payload.productId}}`, payload);
+      console.log(payload);
+      const { msg, err } = await res.data;
+      
+      if (msg) {
+        context.commit("setProduct", msg);
+      } else {
+        context.commit("setMessage", err);
+      }
+    },
+    updateUser: async (context, payload) => {
+      const res = await axios.put(`${foodies}product/${payload}`, payload);
       console.log(payload);
       const { result, err } = await res.data;
       console.log(result);
@@ -132,6 +156,17 @@ export default createStore({
       //   console.log(err);
       // }
     },
+    deleteUser: async(context, id)=>{
+      const { data } = await axios.delete(`${foodies}product/${id}`);
+      if (data) {
+        context.commit("setMessage", data.msg);
+      
+      } else {
+        context.commit("setMessage", data.err);
+      }
+      
+
+    }
   },
   modules: {},
 });

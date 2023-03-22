@@ -25,16 +25,13 @@
               <td>{{ user.userRole }}</td>
 
               <td>
-                <button type="button"><i class="fa-solid fa-trash"></i></button>
+                <button type="button" class="btnDelete"><i class="fa-solid fa-trash"></i></button>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-  </div>
-
-  <div>
     <div class="container">
       <h2>Products</h2>
       <AddProdComp />
@@ -62,7 +59,7 @@
               <td>{{ product.category }}</td>
 
               <td>{{ product.prodNutrition }}</td>
-              <td type="button" class="btnUpdate"><UpdateProdComp /></td>
+              <td type="button" class="btnUpdate"><UpdateProdComp /> </td>
               <td>
                 <button
                   type="button"
@@ -77,7 +74,11 @@
         </table>
       </div>
     </div>
+
   </div>
+
+
+ 
 </template>
 
 <script>
@@ -114,5 +115,18 @@ export default {
 .image {
   width: 5rem;
   height: 5rem;
+}
+.btnDelete{
+  border: none;
+  color: #7cbd1e;
+  background-color: transparent;
+  font-size: 2rem;
+}
+#manage h2{
+  color: #7cbd1e;
+  text-align: center;
+  font-size: 3rem;
+
+
 }
 </style>

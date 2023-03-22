@@ -52,10 +52,7 @@
   #category{
     width: 100%;
   }
-  #addProdModal .fa-solid{
-    border: none;
-
-  }
+ 
   </style>
 
   <script>

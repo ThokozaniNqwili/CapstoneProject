@@ -178,7 +178,7 @@ class Product {
 class Cart{
   fetchCart(req,res){
     const cartQry = `
-    SELECT cart.cartId, cart.cartQuantity, products.productName, products.price,products.imgURL, (products.price* cart.cartQuantity) As Total
+    SELECT cartId,cartQuantity, productName, price, imgURL, (price*cartQuantity) As total
     FROM Users
     INNER JOIN cart
     ON cart.userId = Users.userId 

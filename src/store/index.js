@@ -9,6 +9,7 @@ export default createStore({
     message: null,
     users: null,
     user: null,
+    cart:null
   },
   getters: {},
   mutations: {
@@ -26,6 +27,9 @@ export default createStore({
     },
     setProduct(state, product) {
       state.product = product;
+    },
+    setCart(state,cart){
+      state.cart = cart;
     },
     sortProductPrice:(state) =>{
       state.products.sort((a,b)=>{
@@ -49,6 +53,15 @@ export default createStore({
         context.commit("setProducts", results);
       } else {
         context.commit("setProducts", err);
+      }
+    },
+    fetchCart: async (context, id) => {
+      const res = await axios.get(`${foodies}/user/${id}/carts`);
+      const { results, err } = await res.data;
+      if (results) {
+        context.commit("setCart", results);
+      } else {
+        context.commit("setCart", err);
       }
     },
     fetchUsers: async (context) => {
@@ -157,9 +170,10 @@ export default createStore({
       // }
     },
     deleteUser: async(context, id)=>{
-      const { data } = await axios.delete(`${foodies}product/${id}`);
+      const { data } = await axios.delete(`${foodies}user/${id}`);
       if (data) {
         context.commit("setMessage", data.msg);
+        context.dispatch("fetchUsers");
       
       } else {
         context.commit("setMessage", data.err);

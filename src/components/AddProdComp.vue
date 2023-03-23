@@ -1,7 +1,7 @@
 <template>
     <div>
      
-  <button type="button" data-bs-toggle="modal" data-bs-target="#addProdModal"><i class="fa-solid fa-plus"></i> New Product
+  <button type="button" data-bs-toggle="modal" class="btnAddProd" data-bs-target="#addProdModal"><i class="fa-solid fa-plus"></i> New Product
     </button>
     
     
@@ -83,4 +83,15 @@
     }
   
   </script>
+  <style>
+  .btnAddProd{
+    border: none;
+    color: #7cbd1e;
+    background-color: transparent;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0.5rem;
+  
+  }
+</style>
 

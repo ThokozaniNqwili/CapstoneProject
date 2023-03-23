@@ -25,7 +25,7 @@
               <td>{{ user.userRole }}</td>
 
               <td>
-                <button type="button" class="btnDelete"><i class="fa-solid fa-trash"></i></button>
+                <button type="button" class="btnDelete"  @click.prevent="deleteUser(user.userId)"><i class="fa-solid fa-trash"></i></button>
               </td>
             </tr>
           </tbody>
@@ -35,7 +35,7 @@
     <div class="container">
       <h2>Products</h2>
       <AddProdComp />
-      <button class="btnSort"><i class="fas fa-sort"></i> Sort by Price</button>
+      
       <div class="row">
         <table class="table">
           <thead>
@@ -107,6 +107,9 @@ export default {
     deleteProduct(id) {
       this.$store.dispatch("deleteProduct", id);
     },
+    deleteUser(id) {
+      this.$store.dispatch("deleteUser", id);
+    },
   },
 };
 </script>
@@ -120,7 +123,7 @@ export default {
   border: none;
   color: #7cbd1e;
   background-color: transparent;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 #manage h2{
   color: #7cbd1e;

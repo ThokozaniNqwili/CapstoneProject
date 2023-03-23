@@ -123,6 +123,20 @@
         
 </template>
 <style>
+.signup .btnSignUp {
+  border: 1px solid transparent;
+  background-color:  #7cbd1e;
+  border-radius: 1rem;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-right: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  color:black;
+}
+.signup .btnSignUp:hover{
+  background-color:  #bceb3c;
+}
 
 
 .signup h1{

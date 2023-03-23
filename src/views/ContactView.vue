@@ -97,7 +97,7 @@ background:white;
 
 .contact .btn {
   border: 1px solid transparent;
-  background-color:  #bceb3c;
+  background-color:  #7cbd1e;
   border-radius: 1rem;
   justify-content: space-between;
   padding: 1rem;
@@ -106,4 +106,8 @@ background:white;
   margin-bottom: 2rem;
   color:black;
 }
+.contact .btn:hover{
+  background-color:  #bceb3c;
+}
+
 </style>

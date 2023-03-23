@@ -1,4 +1,7 @@
 <template>
+  <div></div>
+</template>
+<!-- <template>
     <div>
      
         <button type="button" data-bs-toggle="modal" data-bs-target="#updateProdModal" class="btnUpdate"><i class="fa-solid fa-pen-to-square"></i>
@@ -85,7 +88,7 @@ export default{
   border: none;
   color: #7cbd1e;
   background-color: transparent;
-  font-size: 2rem;
+  font-size: 1.5rem;
 
 }
-</style>
+</style> -->

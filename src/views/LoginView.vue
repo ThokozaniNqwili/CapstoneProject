@@ -26,7 +26,7 @@
                   >Password</label
                 >
                 <input
-                  type="text"
+                  type="password"
                   class="form-control"
                   id="loginPass"
                   placeholder=""
@@ -42,9 +42,9 @@
                 <button type="submit" class="btnLogin" >Login</button>
                 
               </div>
-              <a class="small text-muted" href="#!">Forgot password?</a>
-              <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
-                  style="color: #393f81;">Register here</a></p>
+              <a class="forgotpassword" href="#!">Forgot password?</a>
+              <p class="newAccount">Don't have an account? <a href="/register"
+                  >Register here</a></p>
             </form>
           </div>
 
@@ -60,25 +60,46 @@
 .login{
   height: 100%;
   width: 100%;
-  background: linear-gradient(to right, #f1f864, white);
+ 
   
 }
 #login{
   background-color: white;
   width: 40%;
+  box-shadow: 0px 0px 23px 10px #7cbd1e;
+  padding: 2rem;
+  
   
 }
 #loginLogo{
  width: 10rem !important;
 }
 
-.btnLogin,
-.btnPassword {
+.btnLogin{
   width: 100%;
+  height: 2.5rem;
   background-color: #bceb3c;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   ;
+}
+.forgotpassword{
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: black;
+}
+.forgotpassword:hover{
+  color:#7cbd1e;
+
+}
+.newAccount{
+  font-size: 1.5rem;
+  color: black;
+
+}
+.newAccount a{
+    text-decoration: none;
+    color:#7cbd1e;
 }
 
 </style>

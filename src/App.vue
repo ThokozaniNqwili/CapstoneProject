@@ -32,9 +32,13 @@ computed: {
   
 }
 
-h1{
+#app h1{
   text-align: center;
-  font-weight: bolder;
+  color: #7cbd1e;
+  font-weight: bold;
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  margin-top: 0.5rem;
 }
 
 

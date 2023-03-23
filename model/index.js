@@ -178,12 +178,13 @@ class Product {
 class Cart{
   fetchCart(req,res){
     const cartQry = `
-    SELECT cart.cartId, cartQuantity, cart.amount, products.productName, products.price,products.imgURL
+    SELECT cart.cartId, cart.cartQuantity, products.productName, products.price,products.imgURL, (products.price* cart.cartQuantity) As Total
     FROM Users
     INNER JOIN cart
-    ON cart.userId = Users.userId
+    ON cart.userId = Users.userId 
     INNER JOIN products
-    ON cart.productId = products.productId;
+    ON cart.productId = products.productId
+    where Users.userId = ?;
     `;
     db.query(cartQry, [req.params.id], (err, result) => {
       if (err) throw err, console.log(err);
@@ -193,14 +194,15 @@ class Cart{
   }
   addToCart(req,res){
     const addToCartQry = `
-        INSERT INTO cart
-        SET ?;
+        INSERT INTO cart 
+        SET ?
+        
     `;
-    db.query(addToCartQry, [req.body], (err) => {
+    db.query(addToCartQry, [req.body], (err, result) => {
       if (err) {
         res.status(400).json({ err: "Unable to add product to cart" });
       } else {
-        res.status(200).json({ msg: "Product added to cart" });
+        res.status(200).json({ msg: "Product added to cart", result });
       }
     });
   }
@@ -223,7 +225,7 @@ class Cart{
     Delete from cart
     Where userId = ?
     `;
-    db.query(deleteCartQry, [req.body, req.params.id], (err) => {
+    db.query(deleteCartQry, [req.params.id], (err) => {
     if (err) res.status(400).json({ err: "The cart was not found." });
     res.status(200).json({ msg: "cart deleted successfully" });
     });
@@ -232,9 +234,9 @@ class Cart{
   deleteCartItem(req,res){
     const deleteCartItemQry = `
         Delete from cart
-        Where productId = ?
+        Where cartId = ?
         `;
-    db.query(deleteCartItemQry, [req.body, req.params.id], (err) => {
+    db.query(deleteCartItemQry, [req.params.id], (err) => {
       if (err) res.status(400).json({ err: "The cart item not found." });
       res.status(200).json({ msg: "cart item deleted successfully" });
     });

@@ -64,10 +64,10 @@ route.delete("/product/:id", (req, res) => {
 route.get("/user/:id/carts",(req, res) => {
     cart.fetchCart(req,res);
 });
-route.post("/user/:id/cart",bodyParser.json, (req, res) => {
+route.post("/user/:id/cart",bodyParser.json(), (req, res) => {
     cart.addToCart(req,res);
 })
-route.put("/user/:id/cart/:id", bodyParser.json, (req, res) => {
+route.put("/user/:id/cart/:id", bodyParser.json(), (req, res) => {
     cart.updateCartItem(req,res);
 })
 route.delete("/user/:id/cart",(req, res) => {

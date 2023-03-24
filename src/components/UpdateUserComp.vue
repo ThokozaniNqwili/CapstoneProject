@@ -1,7 +1,7 @@
 <template>
     <div>
      
-  <button type="button" data-bs-toggle="modal" data-bs-target="#UpdateModal"><i class="fa-solid fa-user-pen"></i>
+  <button type="button" data-bs-toggle="modal" data-bs-target=" '#UpdateModal' +  "><i class="fa-solid fa-user-pen"></i>
     </button>
     
     

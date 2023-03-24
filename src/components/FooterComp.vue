@@ -59,9 +59,10 @@
     
 </template>
   
-<style>
+<style scoped>
 footer {
     background-color:#BCEB3C;
+    margin-top: 3rem;
     
 }
 .copyright{

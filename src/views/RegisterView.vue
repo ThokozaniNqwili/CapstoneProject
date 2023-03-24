@@ -122,7 +122,7 @@
   </div>
         
 </template>
-<style>
+<style scoped>
 .signup .btnSignUp {
   border: 1px solid transparent;
   background-color:  #7cbd1e;

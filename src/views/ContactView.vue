@@ -80,7 +80,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .contact{
 background:white;
 }

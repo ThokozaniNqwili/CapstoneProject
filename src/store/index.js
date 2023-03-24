@@ -9,7 +9,8 @@ export default createStore({
     message: null,
     users: null,
     user: null,
-    cart:null
+    cart:null,
+  
   },
   getters: {},
   mutations: {
@@ -31,6 +32,13 @@ export default createStore({
     setCart(state,cart){
       state.cart = cart;
     },
+    // // setCart(state,{user,quantity,product}){
+    // //   state.cart({
+    // //     product,
+    // //     quantity,
+    // //     user
+    // //   });
+    // },
     sortProductPrice:(state) =>{
       state.products.sort((a,b)=>{
         return a.price - b.price;
@@ -41,6 +49,8 @@ export default createStore({
       state.asc =!state.asc
 
     }
+   
+   
   
     
 
@@ -55,11 +65,14 @@ export default createStore({
         context.commit("setProducts", err);
       }
     },
-    fetchCart: async (context, id) => {
-      const res = await axios.get(`${foodies}/user/${id}/carts`);
-      const { results, err } = await res.data;
-      if (results) {
-        context.commit("setCart", results);
+    fetchCart: async (context,id) => {
+      const res = await axios.get(`${foodies}user/${id}/carts`);
+      
+      const { result, err } = await res.data;
+      
+      if (result) {
+        
+        context.commit("setCart", result);
       } else {
         context.commit("setCart", err);
       }
@@ -126,6 +139,19 @@ export default createStore({
         console.log(err);
       }
     },
+    addToCart: async (context,payload) => {
+      console.log(payload);
+      const res = await axios.post(`${foodies}user/${payload.userId}/cart`, payload);
+      const { msg, err } = await res.data;
+
+      if (msg) {
+        console.log(msg);
+        context.commit("setMessage", msg);
+      } else {
+        context.commit("setMessage", err);
+        console.log(err);
+      }
+    },
 
     updateProduct: async (context, payload) => {
       const res = await axios.put(`${foodies}product/${payload.productId}}`, payload);
@@ -179,6 +205,37 @@ export default createStore({
         context.commit("setMessage", data.err);
       }
       
+
+    },
+    deleteCartItem: async(context,id)=>{
+     
+      const res = await axios.delete(`${foodies}user/${id}/cart/${id}`);
+      const { msg, err } = await res.data;
+    
+      if (msg) {
+        context.commit("setMessage",msg);
+        context.dispatch("fetchCart");
+      
+      } else {
+        context.commit("setMessage", err);
+       
+      }
+
+    },
+
+    deleteCart: async(context,id)=>{
+      const res = await axios.delete(`${foodies}user/${id}/cart`);
+      console.log(res);
+      const { msg, err } = await res.data;
+      
+      if (msg) {
+        context.commit("setMessage", msg);
+        context.dispatch("fetchCart");
+        
+      
+      } else {
+        context.commit("setMessage", err);
+      }
 
     }
   },

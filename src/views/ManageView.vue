@@ -1,5 +1,6 @@
 <template>
-  <div id="manage">
+  <div id="manage" >
+
     <div class="container">
       <h2>Users</h2>
 
@@ -59,7 +60,7 @@
               <td>{{ product.category }}</td>
 
               <td>{{ product.prodNutrition }}</td>
-              <td type="button" class="btnUpdate"><UpdateProdComp /> </td>
+              <td type="button" class="btnUpdate" ><UpdateProdComp /> </td>
               <td>
                 <button
                   type="button"
@@ -84,11 +85,13 @@
 <script>
 import AddProdComp from "@/components/AddProdComp.vue";
 import UpdateProdComp from "@/components/UpdateProdComp.vue";
+// import SpinnerComp from '@/components/SpinnerComp.vue'
 
 export default {
   components: {
     UpdateProdComp,
     AddProdComp,
+
   },
 
   computed: {
@@ -114,7 +117,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .image {
   width: 5rem;
   height: 5rem;

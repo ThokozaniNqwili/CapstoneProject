@@ -20,7 +20,7 @@ export default{
 
 </script>
 
-<style>
+<style scoped>
 .spinner{
     position: fixed;
     top: 0;

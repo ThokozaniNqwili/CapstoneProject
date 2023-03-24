@@ -55,7 +55,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 
 .login{
   height: 100%;

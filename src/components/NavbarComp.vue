@@ -46,20 +46,25 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/admin">Manage</a>
+            <a class="nav-link active" aria-current="page" href="/logout" onclick.prevent="logOut"
+              >Sign Out</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/admin" v-if="user?.userRole === 'admin'">Manage</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/profile" v-if="user">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/cart" v-if="user">Cart</a>
+            <a class="nav-link" href="/cart" v-if="user" >Cart</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 </template>
-<style>
+<style scoped>
 nav {
   background-color: #f1f864 !important;
   font-size: 1.2rem !important;
@@ -82,5 +87,10 @@ export default {
     this.user =
       this.loggedUser || JSON.parse(localStorage.getItem("loggedUser"));
   },
+  methods:{
+    logOut(){
+      this.user = null || JSON.parse(localStorage.removeItem("loggedUser"))
+    }
+  }
 };
 </script>

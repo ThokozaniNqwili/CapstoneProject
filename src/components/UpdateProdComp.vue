@@ -1,10 +1,9 @@
+
 <template>
-  <div></div>
-</template>
-<!-- <template>
     <div>
      
         <button type="button" data-bs-toggle="modal" data-bs-target="#updateProdModal" class="btnUpdate"><i class="fa-solid fa-pen-to-square"></i>
+          
           </button>
           
           
@@ -18,16 +17,16 @@
                 <form @submit.prevent="update">
                   <div class="modal-body">
                   <label>Product Name:</label><br>
-                  <input type="text" class="input" placeholder="Product Name"  v-model="productName" required > <br><br>
+                  <input type="text" class="input" placeholder="Product Name"   required >{{product?.productName}} <br><br>
                   <label>Nutrition:</label><br>
-                  <textarea class="input" id="message-text" placeholder="Nutrition" style="height: 100px" v-model="prodNutrition" required ></textarea>
+                  <textarea class="input" id="message-text" placeholder="Nutrition" style="height: 100px"  required ></textarea><br>
                   <label>Price:</label><br>
-                  <input type="input" class="input" placeholder="Price" v-model="price"  required > <br><br>
+                  <input type="input" class="input" placeholder="Price"   required > <br><br>
                   <label>category:</label><br>
-                  <input type="input" class="input" placeholder="Fruit/Vegetable" v-model="category"  required > <br><br>
+                  <input type="input" class="input" placeholder="Fruit/Vegetable"   required > <br><br>
                   
                   <label>Image</label><br>
-                  <input type="text" class="input" placeholder="imgURL" v-model="img" required > <br><br>
+                  <input type="text" class="input" placeholder="imgURL"  required > <br><br>
                   
                 </div>
         
@@ -45,6 +44,7 @@
 </template>
 
 <script>
+
 export default{ 
   data(){
     return{
@@ -63,6 +63,9 @@ export default{
   message() {
     return this.$store.state.message;
   },
+  product() {
+      return this.$store.state.product;
+      }
 },
 
 
@@ -91,4 +94,4 @@ export default{
   font-size: 1.5rem;
 
 }
-</style> -->
+</style>

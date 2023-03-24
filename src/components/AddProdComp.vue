@@ -45,7 +45,7 @@
   
   
   </template>
-  <style>
+  <style >
   .input{
     width:100%;
   }

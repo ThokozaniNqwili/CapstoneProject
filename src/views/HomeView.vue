@@ -39,7 +39,7 @@
 
 
 </script>
-<style>
+<style scoped>
 .home{
   text-align: center;
 }

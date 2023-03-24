@@ -44,8 +44,8 @@ computed: {
   loggedUser(){
       return JSON.parse(localStorage.getItem("loggedUser"));
     }
-},
-methods: {
+   },
+   methods: {
     deleteUser(id) {
       this.$store.dispatch("deleteUser", id);
       

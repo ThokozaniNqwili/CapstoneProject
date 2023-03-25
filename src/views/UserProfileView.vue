@@ -15,10 +15,8 @@
           </div>
           <button
                   type="button"
-                  class="btnDelete"
-                  @click.prevent="updateUser(loggedUser?.userId)"
-                >
-                <i class="fa-solid fa-user-pen"></i>
+                  class="btnDelete"><UpdateUserComp :userData="loggedUser"/>
+                
                 </button>
 
                 <button
@@ -37,8 +35,12 @@
 </template>
 
 <script>
+import UpdateUserComp from "@/components/UpdateUserComp.vue";
 
 export default {
+  components:{
+     UpdateUserComp
+  },
  
 computed: {
   loggedUser(){
@@ -51,9 +53,7 @@ computed: {
       
      
     },
-    updateUser(id) {
-      this.$store.dispatch("updateUser", id);
-    },
+ 
   },
 
 };

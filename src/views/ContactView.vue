@@ -1,8 +1,7 @@
 <template>
   <div class="contact">
-    <h1>Contact Us</h1>
-
     <div class="container">
+      <h1>Contact Us</h1>
       <div class="row">
         <div class="col-sm-8">
           <form action="https://formspree.io/f/myyvbwyw" method="POST">
@@ -61,7 +60,7 @@
             <div class="col-auto">
               <button
                 type="submit"
-                class="btn"
+                class="btnContact"
                 data-bs-toggle="modal"
                 data-bs-target="#messageModal"
               >
@@ -94,8 +93,7 @@ background:white;
   text-align: center;
 }
 
-
-.contact .btn {
+.btnContact {
   border: 1px solid transparent;
   background-color:  #7cbd1e;
   border-radius: 1rem;
@@ -106,7 +104,7 @@ background:white;
   margin-bottom: 2rem;
   color:black;
 }
-.contact .btn:hover{
+.btnContact:hover{
   background-color:  #bceb3c;
 }
 

@@ -1,8 +1,7 @@
 <template>
   <div id="productpage">
-    <h1 class="card-title">{{ product?.productName }}</h1>
-
     <div class="container">
+      <h1 class="card-title">{{ product?.productName }}</h1>
       <div class="row">
         <div class="col-sm-6">
           <div class="card">
@@ -15,7 +14,7 @@
             <h5 class="card-text">R {{ product?.price }}</h5>
             <br />
             <h5 class="card-text">Nutrition</h5>
-            <h6>{{ product?.prodNutrition }}</h6>
+            <p>{{ product?.prodNutrition }}</p>
             <button
               type="submit"
               @click.prevent="addToCart"
@@ -56,7 +55,7 @@ export default {
       this.$store.dispatch("addToCart", {
         userId: this.loggedUser.userId,
         productId: this.product.productId,
-        cartQuantity : +1
+        cartQuantity : 1
       });
     },
   },
@@ -93,5 +92,14 @@ export default {
 }
 .btnCheckout:hover{
   background-color: #f1f864;
+}
+@media screen and (min-width: 300px) and (max-width: 719px) {
+  #productpage h1{
+    font-size: 2rem ;
+  }
+  .info{
+    font-size: 1rem !important;
+  }
+
 }
 </style>

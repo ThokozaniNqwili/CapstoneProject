@@ -5,31 +5,31 @@
           <div class="row text-center d-flex justify-content-center pt-5">
             <div class="col-md-1">
               <h6 class="item">
-                <a href="/" class="text-black text-decoration-none fs-5 ">Home</a>
+                <a href="/" class="text-black fw-bold text-decoration-none">Home</a>
               </h6>
             </div>
             
             <div class="col-md-1">
               <h6 class="item">
-                <a href="/products" class="text-black text-decoration-none fs-5">Shop</a>
+                <a href="/products" class="text-black fw-bold text-decoration-none">Shop</a>
               </h6>
             </div>
           
             <div class="col-md-1">
               <h6 class="item">
-                <a href="/about" class="text-black text-decoration-none fs-5">About</a>
+                <a href="/about" class="text-black fw-bold text-decoration-none">About</a>
               </h6>
             </div>
           
             <div class="col-md-1">
               <h6 class="item">
-                <a href="/contact" class="text-black text-decoration-none fs-5">Contact</a>
+                <a href="/contact" class="text-black fw-bold text-decoration-none">Contact</a>
               </h6>
             </div>
         
             <div class="col-md-1">
               <h6 class="item">
-                <a href="/register" class="text-black text-decoration-none fs-5">Sign Up</a>
+                <a href="/register" class="text-black fw-bold text-decoration-none">SignUp</a>
               </h6>
             </div>
           
@@ -73,9 +73,7 @@ footer {
   font-weight: bold;
 }
 
-footer .item a:hover{
-  opacity: 1;
-} 
+
 
   
   

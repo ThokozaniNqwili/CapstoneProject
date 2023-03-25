@@ -1,8 +1,7 @@
 <template>
   <div class="signup">
-    <h1>Sign Up</h1>
-    
         <div class="container">
+          <h1>Sign Up</h1>
           <div class="row">
             <div class="col-sm-8">
               <form @submit.prevent="signup">
@@ -93,7 +92,7 @@
                 
     
                 <div class="col-auto">
-                  <!-- <router-link to="/login"> -->
+                  
                     <button
                     type="submit"
                     class="btnSignUp"
@@ -101,7 +100,7 @@
                   >
                     Sign Up
                   </button>
-                <!-- </router-link> -->
+               
                 </div>
               </form>
             </div>

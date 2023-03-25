@@ -128,6 +128,7 @@ export default {
     let sum = eval(this.cart.total.replace(/\s/g, "")).toFixed(2);
     return sum;
   },
+  
   methods: {
     deleteCartItem(id) {
       this.$store.dispatch("deleteCartItem",id);

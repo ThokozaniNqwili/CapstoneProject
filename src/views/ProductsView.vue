@@ -5,9 +5,10 @@
         <div class="col">
           <input
             class="search form-control me-2"
-            @click.prevent="search"
+            v-model="search"
             type="search"
             placeholder="Search"
+            id="search"
             aria-label="Search"
           />
         </div>
@@ -64,6 +65,11 @@
 <script>
 import SpinnerComp from "@/components/SpinnerComp.vue";
 export default {
+  data(){
+    return{
+      search: ''
+    }
+  },
   components: {
     SpinnerComp,
   },
@@ -72,15 +78,23 @@ export default {
     products() {
       return this.$store.state.products;
     },
+    
+    
   },
+
+
+
   created() {
     this.$store.dispatch("fetchProducts");
   },
+
+  
   methods: {
     sortPrice() {
       this.$store.commit("sortProductPrice");
     },
   },
+  
 };
 </script>
 <style scoped>
@@ -141,4 +155,26 @@ export default {
     scale: 0.8;
   }
 }
+@media screen and (min-width: 300px) and (max-width: 719px) {
+#products .card-img-top {
+  height: 10rem !important;
+}
+#products .card {
+  height: 20rem;
+}
+
+
+}
+@media screen and (min-width: 720px) and (max-width: 1079px) {
+  #products .card-img-top {
+    height: 15rem !important;
+  }
+  #products .card {
+    height: 25rem;
+  }
+  
+  
+  }
+
+
 </style>

@@ -42,7 +42,6 @@
                 <button type="submit" class="btnLogin" >Login</button>
                 
               </div>
-              <a class="forgotpassword" href="#!">Forgot password?</a>
               <p class="newAccount">Don't have an account? <a href="/register"
                   >Register here</a></p>
             </form>
@@ -65,7 +64,7 @@
 }
 #login{
   background-color: white;
-  width: 40%;
+  width: 50%;
   box-shadow: 0px 0px 23px 10px #7cbd1e;
   padding: 2rem;
   
@@ -83,15 +82,7 @@
   margin-bottom: 0.5rem;
   ;
 }
-.forgotpassword{
-  font-size: 1.5rem;
-  text-decoration: none;
-  color: black;
-}
-.forgotpassword:hover{
-  color:#7cbd1e;
 
-}
 .newAccount{
   font-size: 1.5rem;
   color: black;
@@ -101,6 +92,22 @@
     text-decoration: none;
     color:#7cbd1e;
 }
+@media screen and (min-width: 300px) and (max-width: 719px) {
+  #login{
+    width: 90%;
+
+  }
+  .newAccount{
+    font-size: 1rem;
+  }
+
+}
+@media screen and (min-width: 720px) and (max-width: 1079px) {
+  #login{
+    width: 70%;
+  }
+}
+
 
 </style>
 

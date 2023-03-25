@@ -1,6 +1,5 @@
 <template>
-  <div id="manage" >
-
+  <div id="manage" class="panel-body">
     <div class="container">
       <h2>Users</h2>
 
@@ -26,7 +25,13 @@
               <td>{{ user.userRole }}</td>
 
               <td>
-                <button type="button" class="btnDelete"  @click.prevent="deleteUser(user.userId)"><i class="fa-solid fa-trash"></i></button>
+                <button
+                  type="button"
+                  class="btnDelete"
+                  @click.prevent="deleteUser(user.userId)"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                </button>
               </td>
             </tr>
           </tbody>
@@ -36,7 +41,7 @@
     <div class="container">
       <h2>Products</h2>
       <AddProdComp />
-      
+
       <div class="row">
         <table class="table">
           <thead>
@@ -44,7 +49,6 @@
               <th scope="col">Product</th>
               <th scope="col">Price</th>
               <th scope="col">Category</th>
-              <th scope="col">QTY</th>
               <th scope="col">Nutrition</th>
               <th scope="col">Edit</th>
               <th scope="col">Delete</th>
@@ -54,13 +58,14 @@
             <tr v-for="product in products" :key="product.productId">
               <td>
                 <img :src="product.imgURL" alt="product image" class="image" />
+                {{ product.productName }}
               </td>
-              <td>{{ product.productName }}</td>
               <td>{{ product.price }}</td>
               <td>{{ product.category }}</td>
-
               <td>{{ product.prodNutrition }}</td>
-              <td type="button" class="btnUpdate" ><UpdateProdComp /> </td>
+              <td type="button" class="btnUpdate">
+                <UpdateProdComp :productData="product" />
+              </td>
               <td>
                 <button
                   type="button"
@@ -75,11 +80,7 @@
         </table>
       </div>
     </div>
-
   </div>
-
-
- 
 </template>
 
 <script>
@@ -91,7 +92,6 @@ export default {
   components: {
     UpdateProdComp,
     AddProdComp,
-
   },
 
   computed: {
@@ -120,19 +120,32 @@ export default {
 <style scoped>
 .image {
   width: 5rem;
-  height: 5rem;
 }
-.btnDelete{
+.btnDelete {
   border: none;
   color: #7cbd1e;
   background-color: transparent;
   font-size: 1.5rem;
 }
-#manage h2{
+#manage h2 {
   color: #7cbd1e;
   text-align: center;
   font-size: 3rem;
-
-
+}
+@media screen and (min-width: 300px) and (max-width: 719px) {
+  .image {
+    width: 2rem;
+  }
+  .btnDelete {
+    font-size: 0.6rem;
+  }
+  th {
+    font-size: 0.6rem;
+    padding: 0rem;
+  }
+  td {
+    font-size: 0.5rem;
+    padding: 0 !important;
+  }
 }
 </style>

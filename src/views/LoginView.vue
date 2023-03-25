@@ -39,7 +39,7 @@
                 <p class="lead">{{ message }}</p>
               </div>
               <div class="col-auto">
-                <button type="submit" class="btnLogin" >Login</button>
+                <a><button type="submit" href="/home" class="btnLogin" >Login</button></a>
                 
               </div>
               <p class="newAccount">Don't have an account? <a href="/register"

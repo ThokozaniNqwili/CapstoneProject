@@ -86,7 +86,7 @@
 <script>
 import AddProdComp from "@/components/AddProdComp.vue";
 import UpdateProdComp from "@/components/UpdateProdComp.vue";
-// import SpinnerComp from '@/components/SpinnerComp.vue'
+
 
 export default {
   components: {

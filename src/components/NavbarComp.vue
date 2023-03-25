@@ -25,7 +25,7 @@
             <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/products">Shop</a>
+            <a class="nav-link" aria-current="page" v-if="user" href="/products">Shop</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/about">About</a>
@@ -45,11 +45,8 @@
               >Sign In</a
             >
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/logout" onclick.prevent="logOut"
-              >Sign Out</a
-            >
-          </li>
+          
+          
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/admin" v-if="user?.userRole === 'admin'">Manage</a>
           </li>

@@ -32,13 +32,7 @@ export default createStore({
     setCart(state,cart){
       state.cart = cart;
     },
-    // // setCart(state,{user,quantity,product}){
-    // //   state.cart({
-    // //     product,
-    // //     quantity,
-    // //     user
-    // //   });
-    // },
+   
     sortProductPrice:(state) =>{
       state.products.sort((a,b)=>{
         return a.price - b.price;
@@ -134,6 +128,8 @@ export default createStore({
       if (msg) {
         console.log(msg);
         context.commit("setMessage", msg);
+        context.dispatch("fetchProducts");
+
       } else {
         context.commit("setMessage", err);
         console.log(err);
